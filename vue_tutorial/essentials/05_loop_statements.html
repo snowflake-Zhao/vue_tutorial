@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+  <script src="../libs/vue.min.js"></script>
+  <style>
+    .class1 {
+      background: #444;
+      color: #eee;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <h1>Section 5:v-if</h1>
+      <template>
+        <h2>Who is the GOAT in tennis?</h2>
+        <select v-model="goat">
+          <option v-for="(value) in goatOpts" v-bind:value="value.val">{{ value.name }}</option>
+        </select>
+        <p v-if="goat === 'federer'">
+          🐐 Roger Federer — elegance, 20 Grand Slams, global icon.
+        </p>
+        <p v-else-if="goat === 'nadal'">
+          🐐 Rafael Nadal — king of clay, relentless fighter.
+        </p>
+        <p v-else="goat === 'djokovic'">
+          🐐 Novak Djokovic — most Grand Slams, statistical GOAT.
+        </p>
+      </template>
+    </div>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        goat: 'federer',
+        goatOpts: [
+          {
+            "name": 'Roger Federer',
+            "val":"federer",
+            "description": 'elegance, 20 Grand Slams, global icon.'
+          },
+          {
+            "name": 'Rafael Nadal',
+            "val":"nadal",
+            "description": 'king of clay, relentless fighter.'
+          },
+          {
+            "name": 'Novak Djokovic',
+            "val":"djokovic",
+            "description": 'most Grand Slams, statistical GOAT.'
+          }
+        ]
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+  <script src="../libs/vue.min.js"></script>
+  <style>
+    .class1 {
+      background: #444;
+      color: #eee;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <h1>Section1:文本插值</h1>
+      <div>{{message}}</div>
+      <div>{{message.split('').reverse().join('')}}</div>
+      <div v-html="messageHtml"></div>
+    </div>
+    <div>
+      <h1>Section2:属性</h1>
+      <label for="r1">v-on v-bind 修改颜色</label><input type="checkbox" v-bind:checked="use" v-on:change="onChange"
+        id="r1">
+      <br>
+      <label for="r1">v-model(syntactic sugar) 修改颜色</label><input type="checkbox" v-model="use" id="r1">
+      <br><br>
+      <div v-bind:class="{'class1': use}">
+        v-bind:class 指令
+      </div>
+    </div>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        message: '菜鸟教程',
+        messageHtml: '<h2>这是html哦</h2>',
+        use: false
+      },
+      methods: {
+        onChange: function () {
+          this.use = !this.use;
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

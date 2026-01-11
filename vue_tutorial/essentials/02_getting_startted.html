@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+  <script src="../libs/vue.min.js"></script>
+</head>
+
+<body>
+  <div id="vue_det">
+    <!-- {{ }} 用于输出对象属性和函数返回值。 -->
+    <h1>site : {{site}}</h1>
+    <h1>url : {{url}}</h1>
+    <h1>{{details()}}</h1>
+  </div>
+  <script type="text/javascript">
+    var data = { site: "菜鸟教程", url: "www.runoob.com", alexa: 10000 }
+    var vm = new Vue({
+      // data 用于定义属性，实例中有三个属性分别为：site、url、alexa。
+      el: '#vue_det',
+      data: data,
+      // methods 用于定义的函数，可以通过 return 来返回函数值。
+      methods: {
+        details: function () {
+          return this.site + " - 学的不仅是技术，更是梦想！";
+        }
+      }
+    })
+    // Vue 实例还提供了一些有用的实例属性与方法。它们都有前缀 $，以便与用户定义的属性区分开来。
+    document.write(vm.$data === data) // true
+    // 使用===取代==
+    // ==和!=操作符会 自动转换数据类型
+    // 但===和!==不会 比较值+数据类型
+    // 这也使得它们要比==和!=快。
+    [10] === 10    // is false
+      [10] == 10    // is true
+    '10' == 10     // is true
+    '10' === 10    // is false
+    // []   == 0     // is true
+    // [] ===  0     // is false
+    '' == false   // is true but true == "a" is false
+    '' === false  // is false
+    document.write("<br>")
+    document.write(vm.$el === document.getElementById('vue_det')) // true
+  </script>
+</body>
+
+</html>
