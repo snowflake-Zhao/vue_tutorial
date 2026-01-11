@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+  <script src="../libs/vue.min.js"></script>
+</head>
+
+<body>
+  <h1>Each Vue component instance goes through a series of initialization steps when it's created - for example, it needs to set up data observation, compile the template, mount the instance to the DOM, and update the DOM when data changes. Along the way, it also runs functions called lifecycle hooks, giving users the opportunity to add their own code at specific stages.</h1>
+  <div id="app">
+    <lifecycle-demo></lifecycle-demo>
+  </div>
+
+  <script>
+    const LifecycleDemo = {
+      template: `<div>{{ message }}</div>`,
+      data() {
+        return {
+          message: 'Hello, Vue!'
+        };
+      },
+      beforeCreate() {
+        debugger;
+        console.log('beforeCreate: 实例刚刚被创建');
+      },
+      created() {
+        debugger;
+        console.log('created: 实例创建完成');
+      },
+      beforeMount() {
+        console.log('beforeMount: 挂载开始之前');
+      },
+      mounted() {
+        debugger;
+        console.log('mounted: 实例已挂载');
+      },
+      beforeUpdate() {
+        console.log('beforeUpdate: 数据更新之前');
+      },
+      updated() {
+        console.log('updated: 数据更新完成');
+      },
+      beforeUnmount() {
+        console.log('beforeUnmount: 实例卸载之前');
+      },
+      unmounted() {
+        console.log('unmounted: 实例已卸载');
+      }
+    };
+
+    const app = new Vue({
+      el: '#app',
+      components: {
+        LifecycleDemo
+      }
+    });
+
+    // app.mount('#app');
+  </script>
+</body>
+
+</html>
